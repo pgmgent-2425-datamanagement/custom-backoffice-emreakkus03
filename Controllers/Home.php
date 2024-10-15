@@ -18,6 +18,24 @@ class HomeController extends BaseController {
     }
 
     public static function edit ($id){
-        print_r($id);
+        //print_r($id);
+        $product = Product::find($id);
+        if (isset ($_POST['name'])) {
+            $product->name = $_POST['name'];
+            $product->save();
+            //self::redirect('/products');
+        }
+       
+        self::loadView('/edit', [
+            'title' => 'Edit product',
+            'product' => $product
+        ]);
     }
+
+    public static function get_products(){
+        $products = Product::all();
+        echo json_encode($products);
+    }
+
+    
 }
