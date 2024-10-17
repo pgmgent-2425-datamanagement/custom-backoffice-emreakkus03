@@ -6,23 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= ($title ?? '') . ' ' . $_ENV['SITE_NAME'] ?></title>
     <link rel="stylesheet" href="/css/main.css?v=<?php if( $_ENV['DEV_MODE'] == "true" ) { echo time(); }; ?>">
+    <link rel="stylesheet" href="/public/css/main.css">
 </head>
 <body>
-    <div class="brand">BrandName</div>
+    <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
+        <div class="brand text-2xl font-bold">Shopifyo</div>
 
-    <nav>
-        <a href="/">Home</a>
-        <a href="#">item 2</a>
-        <a href="#">item 3</a>
-        <a href="#">item 4</a>
-    </nav>
+        <nav class="space-x-4">
+            <a href="/" class="hover:text-gray-400">Home</a>
+            <a href="/inventory" class="hover:text-gray-400">Inventory</a>
+            <a href="#" class="hover:text-gray-400">item 3</a>
+            <a href="#" class="hover:text-gray-400">item 4</a>
+        </nav>
+    </header>
+    
+
 
     <main>
         <?= $content; ?>
     </main>
     
     <footer>
-        &copy; <?= date('Y'); ?> - BrandName
+        &copy; <?= date('Y'); ?> - Shopifyo
     </footer>
+
+    <script src="/js/main.js"></script>
 </body>
 </html>
