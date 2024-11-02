@@ -10,11 +10,10 @@
 </head>
 <body>
     <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <div class="brand text-2xl font-bold">Shopifyo</div>
+        <div class="brand text-2xl font-bold"><a href="/" class="hover:text-gray-400">Shopifyo</a></div>
 
         <nav class="space-x-4">
-            <a href="/" class="hover:text-gray-400">Home</a>
-            <a href="/inventory" class="hover:text-gray-400">Inventory</a>
+            <a href="/inventory" class="hover:text-gray-400">Inventaris</a>
             <a href="#" class="hover:text-gray-400">item 3</a>
             <a href="#" class="hover:text-gray-400">item 4</a>
         </nav>
@@ -30,6 +29,7 @@
         &copy; <?= date('Y'); ?> - Shopifyo
     </footer>
 
-    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </body>
 </html>

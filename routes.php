@@ -5,11 +5,18 @@ $router->setNamespace('\App\Controllers');
 $router->get('/', 'HomeController@index');
 $router->get('/', 'HomeController@index');
 $router->get('/inventory', 'InventoryController@index');
+$router->get('/inventory/add', 'InventoryController@add');
 $router->get('/inventory/edit/(\d+)', 'InventoryController@edit');
 $router->get('/inventory/delete/(\d+)', 'InventoryController@delete');
+$router->get('/category', 'CategoryController@index');
+$router->get('/category/add', 'CategoryController@add');
+$router->get('/category/edit/(\d+)', 'CategoryController@edit');
+$router->get('/category/delete/(\d+)', 'CategoryController@delete');
 // post route
 $router->post('/inventory/edit/(\d+)', 'InventoryController@edit');
-$router->post('/inventory', 'InventoryController@add');
+$router->post('/inventory/add', 'InventoryController@add');
+$router->post('/category/add', 'CategoryController@add');
+$router->post('/category/edit/(\d+)', 'CategoryController@edit');
 
 // api routes
 $router->get('/api/products', 'HomeController@get_products');

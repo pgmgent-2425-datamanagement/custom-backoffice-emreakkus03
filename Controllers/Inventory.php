@@ -8,6 +8,7 @@ class InventoryController extends BaseController {
 
     public static function index () {
         $products = Product::all();
+        
 
         //print_r($products);
 
@@ -23,12 +24,14 @@ class InventoryController extends BaseController {
             $product = new Product();
             $product->name= $_POST['name'];
             $product->description= $_POST['description'];
+            $product->price= $_POST['price'];
+            $product->quantity= $_POST['quantity'];
             $product->add();
             header("Location: /inventory"); 
             exit;
         }
-        self::loadView('/inventory', [
-            'title' => 'Inventory',
+        self::loadView('/add', [
+            'title' => 'Add product',
         ]);
     }
 
@@ -38,6 +41,8 @@ class InventoryController extends BaseController {
         if (isset ($_POST['name'])) {
             $product->name= $_POST['name'];
             $product->description= $_POST['description'];
+            $product->price= $_POST['price'];
+            $product->quantity= $_POST['quantity'];
             $product->save();
             header("Location: /inventory"); 
             exit;
@@ -56,7 +61,6 @@ class InventoryController extends BaseController {
         header("Location: /inventory"); 
         exit;
     }
-
 
     
 }
