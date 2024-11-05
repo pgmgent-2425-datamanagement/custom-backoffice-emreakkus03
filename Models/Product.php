@@ -45,5 +45,13 @@ class Product extends BaseModel {
         ]);
     }
     
+    public function search($term) {
+        $sql = "SELECT * FROM products WHERE name LIKE :term OR description LIKE :term";
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([':term' => '%' . $term . '%']);
+        
+        return $pdo_statement->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+    
     
 }

@@ -80,5 +80,17 @@ class InventoryController extends BaseController {
         exit;
     }
 
+    public static function search() {
+        $term = $_GET['search'] ?? '';  // Pak de zoekterm uit de querystring
+        
+        $products = (new Product())->search($term);
+        
+        self::loadView('/inventory', [
+            'title' => 'Inventory',
+            'products' => $products,
+            'searchTerm' => $term
+        ]);
+    }
+    
     
 }

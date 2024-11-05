@@ -1,6 +1,9 @@
 
 <tr class="border-b">
-            <img src="/images/<?= $product->image; ?>" ?>
+    <td class="px-4 py-2 max-w-xs ">
+        <img src="/images/<?= $product->image; ?>" class="max-w-xs" />
+            
+        </td>
             
             <td class="px-4 py-2"><?= $product->name ?></td>
             <td class="px-4 py-2"><?= $product->description ?></td>

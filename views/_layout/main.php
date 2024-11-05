@@ -15,6 +15,7 @@
         <nav class="space-x-4">
             <a href="/inventory" class="hover:text-gray-400">Inventaris</a>
             <a href="/category" class="hover:text-gray-400">Categorieën</a>
+            <a href="/filemanager" class="hover:text-gray-400">Filemanager</a>
         </nav>
     </header>
     
