@@ -20,16 +20,33 @@ class InventoryController extends BaseController {
 
     // add new product
     public static function add () {
-        if (isset ($_POST['name'])) {
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $nameF = $_FILES['image']['name'];
+            $tmP = $_FILES['image']['tmp_name'];
+    
+            $to = BASE_DIR . '/public/images/';
+            $uuid = uniqid() . $nameF;
+    
+            move_uploaded_file($tmP, $to . $uuid);
+    
+            $imagePath = $uuid; // Sla het pad op als afbeelding
+        } else {
+            // Afbeelding is niet geüpload, geef een standaardwaarde of meld het probleem
+            $imagePath = null;  // Of geef een standaardnaam, bijvoorbeeld 'default.jpg'
+        }
+
+        if (isset($_POST['name'])) {
             $product = new Product();
-            $product->name= $_POST['name'];
-            $product->description= $_POST['description'];
-            $product->price= $_POST['price'];
-            $product->quantity= $_POST['quantity'];
+            $product->name = $_POST['name'];
+            $product->description = $_POST['description'];
+            $product->price = $_POST['price'];
+            $product->quantity = $_POST['quantity'];
+            $product->image = $imagePath; // gebruik de correcte afbeeldingsnaam of null
             $product->add();
-            header("Location: /inventory"); 
+            header("Location: /inventory");
             exit;
         }
+    
         self::loadView('/add', [
             'title' => 'Add product',
         ]);
@@ -43,6 +60,7 @@ class InventoryController extends BaseController {
             $product->description= $_POST['description'];
             $product->price= $_POST['price'];
             $product->quantity= $_POST['quantity'];
+            $product->avatar= $_POST['image'];
             $product->save();
             header("Location: /inventory"); 
             exit;

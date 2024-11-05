@@ -8,7 +8,7 @@ use App\Models\BaseModel;
 class Product extends BaseModel {
     public function save() {
 
-        $sql = "UPDATE products SET name = :name, description = :description, price = :price, quantity = :quantity WHERE id = :id";
+        $sql = "UPDATE products SET name = :name, description = :description, price = :price, quantity = :quantity, image = :image WHERE id = :id";
 
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute([
@@ -17,6 +17,7 @@ class Product extends BaseModel {
             ':price' => $this->price,
             ':quantity' => $this->quantity,
             ':id' => $this->id,
+            ':image' => $this->image,
         ]);
     }
 
@@ -32,7 +33,7 @@ class Product extends BaseModel {
 
     public function add() {
 
-        $sql = "INSERT INTO products (name, description, quantity, price) VALUES (:name, :description, :quantity, :price)";
+        $sql = "INSERT INTO products (name, description, quantity, price, image) VALUES (:name, :description, :quantity, :price, :image)";
 
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute([
@@ -40,6 +41,7 @@ class Product extends BaseModel {
             ':description' => $this->description,
             ':quantity' => $this->quantity,
             ':price' => $this->price,
+            ':image' => $this->image,
         ]);
     }
     

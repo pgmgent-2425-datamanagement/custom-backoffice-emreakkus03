@@ -14,8 +14,7 @@
 
         <nav class="space-x-4">
             <a href="/inventory" class="hover:text-gray-400">Inventaris</a>
-            <a href="#" class="hover:text-gray-400">item 3</a>
-            <a href="#" class="hover:text-gray-400">item 4</a>
+            <a href="/category" class="hover:text-gray-400">Categorieën</a>
         </nav>
     </header>
     
