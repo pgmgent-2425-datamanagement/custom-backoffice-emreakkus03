@@ -12,9 +12,8 @@ class FilemanagerController extends BaseController {
         ]);
     }
     
-    public static function delete ($file) {
-        unlink(BASE_DIR . '/public/images/' . $file);
-        header("Location: /filemanager");
-        exit;
+    public static function delete($folder) {
+        $list = scandir(BASE_DIR . '/public/images/' . $folder);
+        
     }
 }

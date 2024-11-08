@@ -97,5 +97,16 @@ class InventoryController extends BaseController
         ]);
     }
 
+    public static function sort() {
+        $order = $_GET['order'] ?? 'ASC'; // standaard sorteren A-Z
+        $products = (new Product())->sortedByName($order);
+
+        self::loadView('/inventory', [
+            'title' => 'Inventory',
+            'products' => $products,
+            'sortOrder' => $order,
+        ]);
+    }
+
   
 }

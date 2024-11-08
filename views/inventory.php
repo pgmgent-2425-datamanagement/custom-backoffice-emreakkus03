@@ -13,13 +13,26 @@
         <a href="/category" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-600">Categorieën</a>
     </div>
 
-<?php $searchTerm = $searchTerm ?? ''; ?>
+    <?php $sortOrder = $sortOrder ?? 'ASC'; ?>
+    <?php $searchTerm = $searchTerm ?? ''; ?>
+
 
 
 <form method="GET" action="/inventory/search" class="mb-4 flex items-center">
     <input type="text" name="search" placeholder="Zoek product..." value="<?= htmlspecialchars($searchTerm); ?>" class="flex-grow p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Zoeken</button>
 </form>
+
+<div class="flex space-x-2 mb-4">
+    <a href="/inventory/sort?order=ASC" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        A-Z
+    </a>
+    <a href="/inventory/sort?order=DESC" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+         Z-A
+    </a>
+</div>
+
+
 
 
 

@@ -63,4 +63,14 @@ class Product extends BaseModel {
         return $result['count'] ?? 0;
     }
     
+    public function sortedByName ($row = 'ASC') {
+        $sql = "SELECT * FROM products ORDER BY name " . ($row === 'DESC' ? 'DESC' : 'ASC');
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute();
+
+        return $pdo_statement->fetchAll(\PDO::FETCH_CLASS, self::class);
+        
+    }
+
+    
 }
