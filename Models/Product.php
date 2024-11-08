@@ -53,5 +53,14 @@ class Product extends BaseModel {
         return $pdo_statement->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
     
+
+    public function getProductCounts() {
+        $sql = "SELECT COUNT(*) as count FROM products";
+        $pdo_statement = (new self)->db->prepare($sql);
+        $pdo_statement->execute();
+        $result = $pdo_statement->fetch(\PDO::FETCH_ASSOC);
+        
+        return $result['count'] ?? 0;
+    }
     
 }
