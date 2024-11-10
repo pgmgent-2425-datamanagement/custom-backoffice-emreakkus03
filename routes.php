@@ -11,6 +11,7 @@ $router->get('/inventory/delete/(\d+)', 'InventoryController@delete');
 $router->get('/inventory/search', 'InventoryController@search'); 
 $router->get('/inventory/sort', 'InventoryController@sort'); 
 
+
 $router->get('/category', 'CategoryController@index');
 $router->get('/category/add', 'CategoryController@add');
 $router->get('/category/edit/(\d+)', 'CategoryController@edit');
@@ -18,7 +19,9 @@ $router->get('/category/delete/(\d+)', 'CategoryController@delete');
 
 $router->get('/filemanager', 'FilemanagerController@list');
 $router->get('/filemanager/(.*)', 'FilemanagerController@list');
-$router->get('/filemanager/delete/(.*)', 'FilemanagerController@delete');
+
+
+
 
 
 // post route

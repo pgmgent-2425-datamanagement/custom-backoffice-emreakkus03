@@ -1,5 +1,5 @@
 <div class="name p-4">
-    <form method="post" class="space-y-4">
+    <form method="post" class="space-y-4"  enctype="multipart/form-data">
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
             <input type="text" id="name" name="name" value="<?= $product->name ?>" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -16,6 +16,15 @@
             <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
             <input type="text" id="price" name="price" value="<?= $product->price ?>" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         </div>
+
+        <select name="category_id" id="category_id">
+            <option value="">Selecteer categorie</option>
+
+            <?php foreach ($categories as $category): ?>
+                
+                <option value="<?= $category->id ?>"><?=$category->name ?></option>
+            <?php endforeach; ?>
+        </select>
         
         <div>
             <label>Image 

@@ -46,6 +46,7 @@
                 <th class="px-4 py-2 text-left text-gray-600">Beschrijving</th>
                 <th class="px-4 py-2 text-left text-gray-600">Prijs</th>
                 <th class="px-4 py-2 text-left text-gray-600">Aantal</th>
+                <th class="px-4 py-2 text-left text-gray-600">Categorie</th>
                 <th class="px-4 py-2 text-left text-gray-600">Acties</th>
             </tr>
         </thead>

@@ -11,9 +11,7 @@ class FilemanagerController extends BaseController {
             'list' => $list,
         ]);
     }
+
     
-    public static function delete($folder) {
-        $list = scandir(BASE_DIR . '/public/images/' . $folder);
-        
-    }
+   
 }
